@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.masprojekt.FvController">
+   <children>
+      <TextField layoutX="25.0" layoutY="38.0" prefHeight="25.0" prefWidth="260.0" />
+      <Text layoutX="115.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imię i nazwisko" />
+      <TextField layoutX="25.0" layoutY="97.0" prefHeight="25.0" prefWidth="260.0" />
+      <Text layoutX="124.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres Email" />
+      <Text layoutX="85.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres rozliczeniowy">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="101.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ulica i numer domu" />
+      <TextField layoutX="25.0" layoutY="232.0" prefHeight="25.0" prefWidth="260.0" />
+      <Text layoutX="117.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kod pocztowy" />
+      <TextField layoutX="127.0" layoutY="284.0" prefHeight="25.0" prefWidth="55.0" promptText="XX-XXX" />
+      <Text layoutX="136.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miasto" />
+      <TextField layoutX="24.0" layoutY="339.0" prefHeight="25.0" prefWidth="260.0" />
+      <Text layoutX="113.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numer telefonu" />
+      <TextField layoutX="25.0" layoutY="156.0" prefHeight="25.0" prefWidth="260.0" />
+      <Button fx:id="OkButton" layoutX="103.0" layoutY="381.0" mnemonicParsing="false" onAction="#onOkButtonClick" prefHeight="25.0" prefWidth="104.0" text="Zatwierdź" />
+   </children>
+</AnchorPane>
