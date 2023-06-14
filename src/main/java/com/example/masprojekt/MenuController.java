@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -15,10 +16,18 @@ public class MenuController {
 
     @FXML
     private Button FvButton;
+    @FXML
+    private ListView<?> fixedList;
+
+    @FXML
+    private ListView<?> toCollectList;
+
+    @FXML
+    private ListView<?> toFixList;
 
     @FXML
     void onFvButtonClick() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FvEvent.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Fv.fxml"));
         try {
             Parent root = loader.load();
             Stage stage = new Stage();
@@ -30,5 +39,4 @@ public class MenuController {
             throw new RuntimeException(e);
         }
     }
-
 }
