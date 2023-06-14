@@ -1,6 +1,8 @@
 package com.example.masprojekt;
 
-public class Naprawa {
+import java.io.Serializable;
+
+public class Naprawa implements Serializable {
     private Smartfon smartfon;
     private Pracownik pracownik;
     private String data;
@@ -16,7 +18,7 @@ public class Naprawa {
         this.czesc = czesc;
         this.czesc.setNaprawa(this);
         this.pracownik.addToNaprawaList(this);
-        this.smartfon.addToNaprawaList(this);
+        this.smartfon.setNaprawa(this);
         this.smartfon.getKlient().getOddzial().getSmartfonyDoNaprawy().remove(this.smartfon);
         this.smartfon.getKlient().getOddzial().getSmartfonyNaprawione().add(this.smartfon);
     }

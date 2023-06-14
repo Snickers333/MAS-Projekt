@@ -1,24 +1,38 @@
 package com.example.masprojekt;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Oddzial {
+public class Oddzial implements Serializable {
     private Adres adres;
     private Kierownik kierownik;
     private List<Czesc> czesci = new ArrayList<>();
     private List<Pracownik> pracownicy = new ArrayList<>();
     private List<Klient> klienci = new ArrayList<>();
     private static int cenaNaprawyZaGodzine = 200;
-    private List<Smartfon> smartfonyDoNaprawy = new ArrayList<>();
-    private List<Smartfon> smartfonyNaprawione = new ArrayList<>();
-    private List<Smartfon> smartfonyDoOdbioru = new ArrayList<>();
+    private List<Smartfon> smartfonyDoNaprawy;
+    private List<Smartfon> smartfonyNaprawione;
+    private List<Smartfon> smartfonyDoOdbioru;
+
+    public Oddzial() {
+        this.adres = (Adres) IOController.loadObjectFromFile("adres.txt");
+        adres.setOddzial(this);
+        this.kierownik = (Kierownik) IOController.loadObjectFromFile("kierownik.txt");
+        kierownik.setOddzial(this);
+        smartfonyDoNaprawy = (List<Smartfon>) IOController.loadObjectFromFile("ToFix.txt");
+        smartfonyNaprawione = (List<Smartfon>) IOController.loadObjectFromFile("Fixed.txt");
+        smartfonyDoOdbioru = (List<Smartfon>) IOController.loadObjectFromFile("PickUp.txt");
+    }
 
     public Oddzial(Adres adres, Kierownik kierownik) {
         this.adres = adres;
         adres.setOddzial(this);
         this.kierownik = kierownik;
         kierownik.setOddzial(this);
+        smartfonyDoNaprawy = new ArrayList<>();
+        smartfonyNaprawione = new ArrayList<>();
+        smartfonyDoOdbioru = new ArrayList<>();
     }
 
     private void addToCzesciList(Czesc czesc) {
@@ -66,5 +80,13 @@ public class Oddzial {
     }
     public void addKlient(Klient klient) {
         this.klienci.add(klient);
+    }
+
+    public Adres getAdres() {
+        return adres;
+    }
+
+    public Kierownik getKierownik() {
+        return kierownik;
     }
 }

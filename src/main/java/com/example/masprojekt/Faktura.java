@@ -1,6 +1,8 @@
 package com.example.masprojekt;
 
-public class Faktura {
+import java.io.Serializable;
+
+public class Faktura implements Serializable {
     private Naprawa naprawa;
     private int koszt;
     private Pracownik pracownik;
@@ -9,7 +11,7 @@ public class Faktura {
     public Faktura(Naprawa naprawa, Pracownik pracownik) {
         this.naprawa = naprawa;
         this.naprawa.setFaktura(this);
-        if (this.naprawa.getSmartfon().getProducent().getCzasGwarancji() > this.naprawa.getSmartfon().getWiek()){
+        if (this.naprawa.getSmartfon().statusGwarancji()){
             this.koszt = 0;
         } else if (naprawa.getSmartfon().getKlient().getKartaStalegoKlienta() != null){
             this.koszt = (int) ((1 - KartaStalegoKlienta.znizka) * naprawa.getDlugoscNaprawy() * Oddzial.getCenaNaprawyZaGodzine());
@@ -21,7 +23,7 @@ public class Faktura {
     }
     public Faktura(Naprawa naprawa, Kierownik kierownik) {
         this.naprawa = naprawa;
-        if (this.naprawa.getSmartfon().getProducent().getCzasGwarancji() > this.naprawa.getSmartfon().getWiek()){
+        if (this.naprawa.getSmartfon().statusGwarancji()){
             this.koszt = 0;
         } else if (naprawa.getSmartfon().getKlient().getKartaStalegoKlienta() != null){
             this.koszt = (int) ((1 - KartaStalegoKlienta.znizka) * naprawa.getDlugoscNaprawy() * Oddzial.getCenaNaprawyZaGodzine());
@@ -46,5 +48,9 @@ public class Faktura {
 
     public void setKierownik(Kierownik kierownik) {
         this.kierownik = kierownik;
+    }
+
+    public Naprawa getNaprawa() {
+        return naprawa;
     }
 }

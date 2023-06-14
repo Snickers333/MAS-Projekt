@@ -1,6 +1,8 @@
 package com.example.masprojekt;
 
-public class KartaStalegoKlienta {
+import java.io.Serializable;
+
+public class KartaStalegoKlienta implements Serializable {
     public static double znizka = 0.15;
     private String dataWydania;
     private String dataWaznosci;

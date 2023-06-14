@@ -1,9 +1,10 @@
 package com.example.masprojekt;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Producent {
+public class Producent implements Serializable {
     private String nazwa;
     private String email;
     private int czasGwarancji;
@@ -21,5 +22,18 @@ public class Producent {
 
     public int getCzasGwarancji() {
         return czasGwarancji;
+    }
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    @Override
+    public String toString() {
+        return "Producent{" +
+                "nazwa='" + nazwa + '\'' +
+                ", email='" + email + '\'' +
+                ", czasGwarancji=" + czasGwarancji +
+                '}';
     }
 }

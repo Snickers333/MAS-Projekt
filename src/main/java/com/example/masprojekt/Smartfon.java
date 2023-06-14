@@ -1,16 +1,17 @@
 package com.example.masprojekt;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Smartfon {
+public class Smartfon implements Serializable {
     private Producent producent;
     private String model;
     private List<Czesc> listaCzesci;
     private int wiek;
     private Klient klient;
     private Pracownik pracownik;
-    private List<Naprawa> naprawaList = new ArrayList<>();
+    private Naprawa naprawa;
     public Smartfon(Producent producent, String model, List<Czesc> czesci, int wiek, Pracownik pracownik) {
         this.producent = producent;
         this.producent.addSmartfon(this);
@@ -45,11 +46,8 @@ public class Smartfon {
         return pracownik;
     }
 
-    public void addToNaprawaList(Naprawa naprawa) {
-        this.naprawaList.add(naprawa);
-    }
-    public void removeFromNaprawaList(Naprawa naprawa) {
-        this.naprawaList.remove(naprawa);
+    public void setNaprawa(Naprawa naprawa) {
+        this.naprawa = naprawa;
     }
     public void addToCzesciList(Czesc czesc) {
         this.listaCzesci.add(czesc);
@@ -66,5 +64,19 @@ public class Smartfon {
 
     public int getWiek() {
         return wiek;
+    }
+    public boolean statusGwarancji(){
+        if (this.producent.getCzasGwarancji() > this.wiek){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    @Override
+    public String toString() {
+        return producent.getNazwa() +
+                " " + model +
+                ", Wiek: " + wiek + " lat" +
+                ", Gwarancja: " + statusGwarancji();
     }
 }

@@ -1,6 +1,8 @@
 package com.example.masprojekt;
 
-public class Adres {
+import java.io.Serializable;
+
+public class Adres implements Serializable {
     private Oddzial oddzial;
     private Osoba osoba;
     private String panstwo;

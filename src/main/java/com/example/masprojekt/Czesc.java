@@ -1,6 +1,8 @@
 package com.example.masprojekt;
 
-public class Czesc {
+import java.io.Serializable;
+
+public class Czesc implements Serializable {
     private Oddzial oddzial;
     private Smartfon smartfon;
     private Naprawa naprawa;
@@ -35,5 +37,14 @@ public class Czesc {
 
     public void setNaprawa(Naprawa naprawa) {
         this.naprawa = naprawa;
+    }
+
+    @Override
+    public String toString() {
+        return "Czesc{" +
+                "nazwa='" + nazwa + '\'' +
+                ", zamiennik=" + zamiennik +
+                ", koszt=" + koszt +
+                '}';
     }
 }
