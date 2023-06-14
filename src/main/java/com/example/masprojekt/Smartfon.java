@@ -46,6 +46,9 @@ public class Smartfon implements Serializable {
         return pracownik;
     }
 
+    public Naprawa getNaprawa() {
+        return this.naprawa;
+    }
     public void setNaprawa(Naprawa naprawa) {
         this.naprawa = naprawa;
     }
@@ -74,9 +77,8 @@ public class Smartfon implements Serializable {
     }
     @Override
     public String toString() {
-        return producent.getNazwa() +
-                " " + model +
-                ", Wiek: " + wiek + " lat" +
-                ", Gwarancja: " + statusGwarancji();
+        return producent.getNazwa() + " " + model + "\n" +
+                "Wiek: " + wiek + " lat" + "\n"+
+                "Gwarancja: " + statusGwarancji();
     }
 }

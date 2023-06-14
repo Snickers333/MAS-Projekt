@@ -41,10 +41,8 @@ public class Czesc implements Serializable {
 
     @Override
     public String toString() {
-        return "Czesc{" +
-                "nazwa='" + nazwa + '\'' +
-                ", zamiennik=" + zamiennik +
-                ", koszt=" + koszt +
-                '}';
+        return nazwa + "\n" +
+                (zamiennik ? "Zamiennik" : "Oryginal") + "\n" +
+                koszt + " zl";
     }
 }

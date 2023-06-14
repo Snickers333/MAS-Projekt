@@ -38,4 +38,16 @@ public class Naprawa implements Serializable {
     public Smartfon getSmartfon() {
         return smartfon;
     }
+
+
+    @Override
+    public String toString() {
+        return "Opis Naprawy\n" +
+                "\n"+
+                "Smartfon:\n" + smartfon + "\n" + "\n" +
+                "Wymieniana czesc:\n" + czesc + "\n" + "\n" +
+                "Dnia: " + data + "\n" +
+                "Czas trwania naprawy: " + dlugoscNaprawy + " godziny\n\n" +
+                "Wykonal:\n" + pracownik + "\n" + "\n";
+    }
 }

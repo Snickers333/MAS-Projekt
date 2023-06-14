@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 public class MenuController implements Initializable {
 
     private Oddzial oddzial;
+    private Pracownik pracownik;
     @FXML
     private Button FvButton;
     private ObservableList<Smartfon> toFixObservable;
@@ -36,6 +37,7 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.oddzial = new Oddzial();
+        this.pracownik = new Pracownik("Boguslaw", "Wieczorek", "352868321", "bwieczorek@gmail.com", "bwieczor", "wieczor1!", true, new Adres("Polska", "Pultusk", "Sloneczna 9", "04-153"), oddzial);
         toFixObservable = FXCollections.observableArrayList(oddzial.getSmartfonyDoNaprawy());
         fixedObservable = FXCollections.observableArrayList(oddzial.getSmartfonyNaprawione());
         toCollectObservable = FXCollections.observableArrayList(oddzial.getSmartfonyDoOdbioru());
@@ -48,10 +50,13 @@ public class MenuController implements Initializable {
     void onFvButtonClick() {
         Smartfon smartfon = fixedList.getSelectionModel().getSelectedItem();
         if (smartfon != null){
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Fv.fxml"));
             try {
                 Parent root = loader.load();
+                FvController fvController = loader.getController();
+                fvController.setSmartfon(smartfon);
+                fvController.setPracownik(pracownik);
+                fvController.setMenuController(this);
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Wystaw Fakturę");
@@ -60,6 +65,63 @@ public class MenuController implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
         }
+    }
+
+    public ObservableList<Smartfon> getToFixObservable() {
+        return toFixObservable;
+    }
+
+    public void setToFixObservable(ObservableList<Smartfon> toFixObservable) {
+        this.toFixObservable = toFixObservable;
+    }
+
+    public ListView<Smartfon> getToFixList() {
+        return toFixList;
+    }
+
+    public void setToFixList(ListView<Smartfon> toFixList) {
+        this.toFixList = toFixList;
+    }
+
+    public ObservableList<Smartfon> getFixedObservable() {
+        return fixedObservable;
+    }
+
+    public void setFixedObservable(ObservableList<Smartfon> fixedObservable) {
+        this.fixedObservable = fixedObservable;
+    }
+
+    public ListView<Smartfon> getFixedList() {
+        return fixedList;
+    }
+
+    public void setFixedList(ListView<Smartfon> fixedList) {
+        this.fixedList = fixedList;
+    }
+
+    public ObservableList<Smartfon> getToCollectObservable() {
+        return toCollectObservable;
+    }
+
+    public void setToCollectObservable(ObservableList<Smartfon> toCollectObservable) {
+        this.toCollectObservable = toCollectObservable;
+    }
+
+    public ListView<Smartfon> getToCollectList() {
+        return toCollectList;
+    }
+
+    public void setToCollectList(ListView<Smartfon> toCollectList) {
+        this.toCollectList = toCollectList;
+    }
+
+    public Oddzial getOddzial() {
+        return oddzial;
+    }
+
+    public void setOddzial(Oddzial oddzial) {
+        this.oddzial = oddzial;
     }
 }

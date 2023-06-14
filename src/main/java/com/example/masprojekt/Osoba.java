@@ -21,4 +21,9 @@ public abstract class Osoba implements Serializable {
         this.adres = adres;
         this.adres.setOsoba(this);
     }
+
+    @Override
+    public String toString() {
+        return imie + " " + nazwisko + "\n" + email;
+    }
 }
