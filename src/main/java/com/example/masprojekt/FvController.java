@@ -9,8 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
+/**
+ * Klasa FvController jest kontrolerem dla widoku "Fv.fxml".
+ * Obsługuje interakcje użytkownika i działania związane z wystawianiem faktur.
+ */
 public class FvController {
     private MenuController menuController;
     private Pracownik pracownik;
@@ -36,6 +41,10 @@ public class FvController {
     @FXML
     private TextField street;
 
+    /**
+     * Metoda onOkButtonClick() jest wywoływana po kliknięciu przycisku "OkButton".
+     * Wystawia ona fakturę dla wybranego smartfona i wyświetla okno z dalszym zapytaniem.
+     */
     @FXML
     void onOkButtonClick() {
         Faktura.issueFV(smartfon, city.getText(), email.getText(), name.getText(), phoneNumber.getText(), postalCode.getText(), street.getText(), pracownik);

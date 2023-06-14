@@ -4,7 +4,7 @@ package com.example.masprojekt;
 import java.io.*;
 
 public class IOController {
-    public static Object loadObjectFromFile(String file){
+    public static Object loadObjectFromFile(String file) {
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
@@ -20,7 +20,8 @@ public class IOController {
             return null;
         }
     }
-    public static void saveDataToFile(Object object, String file){
+
+    public static void saveDataToFile(Object object, String file) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);

@@ -1,4 +1,5 @@
 package com.example.masprojekt;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,6 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainApplication extends Application {
+    /**
+     * Metoda start() jest wywoływana podczas uruchamiania aplikacji.
+     * Wczytuje ona plik "Menu.fxml" i ustawia go jako scenę.
+     *
+     * @throws IOException Jeśli wystąpi błąd I/O podczas ładowania pliku FXML.
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("Menu.fxml"));
@@ -18,12 +25,15 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
-        Seed();
+//        Seed();
         launch();
     }
 
+    /**
+     * Metoda pomocnicza wypełnia program przykładowymi danymi.
+     */
     private static void Seed() {
-/*        Adres adres = new Adres("Polska", "Warszawa", "Skalskiego 1/2", "03-456");
+        Adres adres = new Adres("Polska", "Warszawa", "Skalskiego 1/2", "03-456");
         Adres adresKier = new Adres("Polska", "Bydgoszcz", "Afrykanska 56", "01-235");
         Adres adresPrac = new Adres("Polska", "Poznan", "3 Maja 22", "08-475");
         Adres adresKlie = new Adres("Polska", "Gdynia", "Meksykanska 2/1", "04-282");
@@ -60,11 +70,6 @@ public class MainApplication extends Application {
         IOController.saveDataToFile(oddzial.getKierownik(), "kierownik.txt");
         IOController.saveDataToFile(oddzial.getSmartfonyDoNaprawy(), "ToFix.txt");
         IOController.saveDataToFile(oddzial.getSmartfonyNaprawione(), "Fixed.txt");
-        IOController.saveDataToFile(oddzial.getSmartfonyDoOdbioru(), "PickUp.txt");*/
-
-//        Oddzial oddzial = new Oddzial();
-//        System.out.println(oddzial.getSmartfonyDoNaprawy());
-//        System.out.println(oddzial.getSmartfonyNaprawione());
-//        System.out.println(oddzial.getSmartfonyDoOdbioru());
+        IOController.saveDataToFile(oddzial.getSmartfonyDoOdbioru(), "PickUp.txt");
     }
 }

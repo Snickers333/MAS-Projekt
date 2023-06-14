@@ -1,7 +1,11 @@
 package com.example.masprojekt;
 
 import java.io.Serializable;
+/**
+ Klasa Adres reprezentuje adres powiązany z oddziałem lub osobą.
 
+ Przechowuje informacje o kraju, mieście, ulicy i kodzie pocztowym.
+ */
 public class Adres implements Serializable {
     private Oddzial oddzial;
     private Osoba osoba;
@@ -9,7 +13,14 @@ public class Adres implements Serializable {
     private String miasto;
     private String ulica;
     private String kodPocztowy;
+    /**
 
+     Konstruuje nową instancję Adres z określonym krajem, miastem, ulicą i kodem pocztowym.
+     @param panstwo Kraj adresu.
+     @param miasto Miasto adresu.
+     @param ulica Ulica adresu.
+     @param kodPocztowy Kod pocztowy adresu.
+     */
     public Adres(String panstwo, String miasto, String ulica, String kodPocztowy) {
         this.panstwo = panstwo;
         this.miasto = miasto;

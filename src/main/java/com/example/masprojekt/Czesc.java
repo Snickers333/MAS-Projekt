@@ -2,6 +2,11 @@ package com.example.masprojekt;
 
 import java.io.Serializable;
 
+/**
+ * Klasa Czesc reprezentuje część używaną w naprawach smartfonów.
+ * <p>
+ * Zawiera informacje o powiązanym oddziale, smartfonie, naprawie, nazwie, czy jest to część zastępcza i koszcie.
+ */
 public class Czesc implements Serializable {
     private Oddzial oddzial;
     private Smartfon smartfon;
@@ -9,7 +14,15 @@ public class Czesc implements Serializable {
     private String nazwa;
     private boolean zamiennik;
     private int koszt;
-    public Czesc( String nazwa, boolean zamiennik, int koszt) {
+
+    /**
+     * Konstruuje nową instancję Czesc z określoną nazwą, flagą zastępczą i kosztem.
+     *
+     * @param nazwa     Nazwa części.
+     * @param zamiennik Flaga wskazująca, czy część jest zamiennikiem.
+     * @param koszt     Koszt części.
+     */
+    public Czesc(String nazwa, boolean zamiennik, int koszt) {
         this.nazwa = nazwa;
         this.zamiennik = zamiennik;
         this.koszt = koszt;

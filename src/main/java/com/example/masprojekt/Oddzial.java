@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa Oddzial reprezentuje oddział firmy zajmujący się naprawami i obsługą smartfonów.
+ * <p>
+ * Przechowuje informacje o adresie, kierowniku, częściach, pracownikach, klientach i smartfonach.
+ * <p>
+ * Klasa zapewnia również metody do zarządzania i uzyskiwania dostępu do tych komponentów.
+ */
 public class Oddzial implements Serializable {
     private Adres adres;
     private Kierownik kierownik;
@@ -15,6 +22,10 @@ public class Oddzial implements Serializable {
     private List<Smartfon> smartfonyNaprawione;
     private List<Smartfon> smartfonyDoOdbioru;
 
+    /**
+     * Konstruuje nową instancję Oddzial.
+     * Ładuje listę adresów, menedżerów i smartfonów z plików przy użyciu IOController.
+     */
     public Oddzial() {
         this.adres = (Adres) IOController.loadObjectFromFile("adres.txt");
         adres.setOddzial(this);
@@ -25,6 +36,13 @@ public class Oddzial implements Serializable {
         smartfonyDoOdbioru = (List<Smartfon>) IOController.loadObjectFromFile("PickUp.txt");
     }
 
+    /**
+     * Konstruuje nową instancję Oddzial z podanym adresem i menedżerem.
+     * Inicjalizuje listy smartfonów jako puste.
+     *
+     * @param adres     Adres oddziału.
+     * @param kierownik Kierownik oddziału.
+     */
     public Oddzial(Adres adres, Kierownik kierownik) {
         this.adres = adres;
         adres.setOddzial(this);
@@ -39,6 +57,7 @@ public class Oddzial implements Serializable {
         this.czesci.add(czesc);
         czesc.setOddzial(this);
     }
+
     private void removeFromCzesciList(Czesc czesc) {
         this.czesci.remove(czesc);
         czesc.setOddzial(null);
@@ -75,9 +94,11 @@ public class Oddzial implements Serializable {
     public void setSmartfonyDoOdbioru(List<Smartfon> smartfonyDoOdbioru) {
         this.smartfonyDoOdbioru = smartfonyDoOdbioru;
     }
+
     public void addPracownik(Pracownik pracownik) {
         this.pracownicy.add(pracownik);
     }
+
     public void addKlient(Klient klient) {
         this.klienci.add(klient);
     }

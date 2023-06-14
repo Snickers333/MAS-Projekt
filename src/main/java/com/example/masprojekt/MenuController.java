@@ -17,6 +17,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Klasa MenuController implementuje interfejs Initializable i służy jako kontroler dla widoku "Menu.fxml".
+ * Zawiera metody obsługi zdarzeń i inicjalizuje elementy interfejsu użytkownika podczas inicjalizacji.
+ */
 public class MenuController implements Initializable {
 
     private Oddzial oddzial;
@@ -33,7 +37,10 @@ public class MenuController implements Initializable {
     @FXML
     private ListView<Smartfon> toCollectList;
 
-
+    /**
+     * Metoda initialize() jest wywoływana po załadowaniu pliku FXML.
+     * Inicjalizuje ona kontroler i ustawia elementy interfejsu użytkownika.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.oddzial = new Oddzial();
@@ -46,10 +53,14 @@ public class MenuController implements Initializable {
         toCollectList.setItems(toCollectObservable);
     }
 
+    /**
+     * Metoda onFvButtonClick() jest wywoływana po kliknięciu przycisku "FvButton".
+     * Otwiera ona widok "Fv.fxml" i konfiguruje kontroler FvController.
+     */
     @FXML
     void onFvButtonClick() {
         Smartfon smartfon = fixedList.getSelectionModel().getSelectedItem();
-        if (smartfon != null){
+        if (smartfon != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Fv.fxml"));
             try {
                 Parent root = loader.load();
@@ -67,6 +78,15 @@ public class MenuController implements Initializable {
             }
 
         }
+    }
+
+    /**
+     * Metoda exit() jest wywoływana po wybraniu opcji "Exit".
+     * Kończy ona działanie aplikacji.
+     */
+    @FXML
+    void exit() {
+        System.exit(0);
     }
 
     public ObservableList<Smartfon> getToFixObservable() {

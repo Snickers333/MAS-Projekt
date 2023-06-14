@@ -103,7 +103,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button layoutX="260.0" layoutY="15.0" mnemonicParsing="false" text="Wyloguj się" />
+                  <Button fx:id="exitButton" layoutX="260.0" layoutY="15.0" mnemonicParsing="false" onAction="#exit" text="Wyloguj się" />
                </children>
             </AnchorPane>
         </items>
