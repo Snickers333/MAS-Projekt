@@ -25,6 +25,9 @@ public class KartaStalegoKlienta implements Serializable {
         this.dataWydania = dataWydania;
         this.dataWaznosci = dataWaznosci;
         this.klient = klient;
+        if (this.klient == null){
+
+        }
         klient.setKartaStalegoKlienta(this);
     }
 
